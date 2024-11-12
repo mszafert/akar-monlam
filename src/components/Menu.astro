@@ -1,0 +1,19 @@
+---
+import AkarBonLogo from './AkarBonLogo.astro';
+---
+
+<nav class="mx-auto max-w-screen-xl flex justify-between p-5">
+  <a href="/" class="logo"><AkarBonLogo /></a>
+  <ul class="flex items-center gap-10 text-xl">
+    <li><a href="/about">About us</a></li>
+    <li><a href="/teachings">Teachings</a></li>
+    <li><a href="/donate">Donate</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</nav>
+
+<style>
+  li a {
+    @apply hover:text-blue-5;
+  }
+</style>

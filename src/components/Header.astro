@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+
+import AkarLogoImg from '../images/akar-logo-header.png';
+import LoponImg from '../images/lopon.jpg';
+import TengelekImg from '../images/tengelek.jpg';
+import Menu from './Menu.astro';
+---
+
+<header>
+  <Menu />
+  <div class="bg-blue-5">
+    <div class="mx-auto max-w-screen-xl p-5">
+      <p class="flex items-start justify-center gap-20">
+        <Image
+          src={LoponImg}
+          class="mt-5 border-2 border-white rounded-full"
+          alt="Lopon"
+        />
+        <Image src={AkarLogoImg} alt="Akar Bon Center" />
+        <Image
+          src={TengelekImg}
+          class="mt-5 border-2 border-white rounded-full"
+          alt="Tengelek"
+        />
+      </p>
+      <p class="mt-5 text-center text-xl c-white">
+        Tha acumulations are completed in the base. The obscurations in the Path
+        are purified. The fruit of Buddahood is actualized.
+      </p>
+    </div>
+  </div>
+</header>

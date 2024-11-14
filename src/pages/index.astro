@@ -1,14 +1,19 @@
 ---
+import { Image } from 'astro:assets';
+import LampImg from '../images/the-lamp.png';
 import DefaultLayout from '../layouts/Default.astro';
 ---
 
 <DefaultLayout title="Welcome">
-  <main class="text-center">
-    <h1>Welcome to Akar Bon Center</h1>
-    <p>
-      THE SECRET INSTRUCTIONS OF THE SIX LAMPS OF THE DZOGCHEN ZHANG ZHUNG
-      NYENGYÜ The Second Lamp - The Lamp of the Flesh Heart starting 19th of
-      November (Tuesday)
+  <div class="text-center">
+    <h1 class="text-5xl font-bold">Welcome to Akar Bon Center</h1>
+    <p class="p-10 text-2xl font-medium">
+      THE SECRET INSTRUCTIONS OF THE SIX LAMPS OF THE DZOGCHEN ZHANG ZHUNG <br />
+      NYENGYÜ The Second Lamp - The Lamp of the Flesh Heart <br />
+      starting 19th of November (Tuesday)
     </p>
-  </main>
-</DefaultLayout>
+    <p class="flex justify-center">
+      <Image src={LampImg} alt="The Lamp" />
+    </p>
+  </div></DefaultLayout
+>

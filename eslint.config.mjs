@@ -3,7 +3,9 @@ import jsxA11y from 'eslint-plugin-jsx-a11y';
 
 export default antfu({
   astro: true,
-  plugins: [jsxA11y],
+  plugins: {
+    'jsx-a11y': jsxA11y,
+  },
   stylistic: {
     semi: true,
   },

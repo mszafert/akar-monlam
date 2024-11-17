@@ -1,33 +1,34 @@
 ---
 import { Image } from 'astro:assets';
 
-import AkarLogoImg from '../images/akar-logo-header.png';
-import LoponImg from '../images/lopon.jpg';
-import TengelekImg from '../images/tengelek.jpg';
+import loponImg from '../images/lopon.jpg';
+import backgroundImage from '../images/menri.jpg';
+import tapihritsaImg from '../images/tapihritsa.png';
+import tengelekImg from '../images/tengelek.jpg';
 import Menu from './Menu.astro';
 ---
 
-<header>
+<header class="mx-auto max-w-screen-xl px-5">
   <Menu />
-  <div class="bg-blue">
-    <div class="mx-auto max-w-screen-xl p-5">
-      <p class="flex items-start justify-center gap-20">
-        <Image
-          src={LoponImg}
-          class="mt-5 border-2 border-white rounded-full"
-          alt="Lopon"
-        />
-        <Image src={AkarLogoImg} alt="Akar Bon Center" />
-        <Image
-          src={TengelekImg}
-          class="mt-5 border-2 border-white rounded-full"
-          alt="Tengelek"
-        />
-      </p>
-      <p class="mt-5 text-center text-xl c-white">
-        Tha acumulations are completed in the base. The obscurations in the Path
-        are purified. The fruit of Buddahood is actualized.
-      </p>
-    </div>
+  <div class="bg-image min-h-md flex flex-col flex-justify-between rounded-2xl bg-cover p-5">
+    <p class="flex items-start justify-center gap-50">
+      <Image src={loponImg} class="img" alt="Lopon" />
+      <Image src={tapihritsaImg} class="mt--25" alt="Akar Bon Center" />
+      <Image src={tengelekImg} class="img" alt="Tengelek" />
+    </p>
+    <p class="mt-5 text-center text-xl c-white">
+      Tha acumulations are completed in the base. The obscurations in the Path
+      are purified. The fruit of Buddahood is actualized.
+    </p>
   </div>
 </header>
+
+<style define:vars={{ backgroundImage: `url(${backgroundImage.src})` }}>
+  .bg-image {
+    background-image: var(--backgroundImage);
+  }
+
+  .img {
+    @apply border-2 border-white rounded-full shadow-lg;
+  }
+</style>

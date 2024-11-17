@@ -1,0 +1,30 @@
+---
+import CardItem from '@components/CardItem.astro';
+import lopon2Img from '@images/lopon2.jpg';
+import tengelek2Img from '@images/tengelek2.jpg';
+import tonpashenrabImg from '@images/tonpashenrab.jpg';
+import DefaultLayout from '@layouts/Default.astro';
+---
+
+<DefaultLayout title="About us">
+  <div class="text-center">
+    <h1 class="text-4xl font-medium">About us</h1>
+    <div class="flex justify-center gap-10 p-10">
+      <CardItem
+        title="Yundrung Bon"
+        img={tonpashenrabImg.src}
+        link={`${Astro.url.pathname}/yundrung-bon`}
+      />
+      <CardItem
+        title="Menri Yongdzin Rinpoche"
+        img={lopon2Img.src}
+        link={`${Astro.url.pathname}/yundrung-bon`}
+      />
+      <CardItem
+        title="Geshe Lungtok Tenzin&nbsp;Gelek"
+        img={tengelek2Img.src}
+        link={`${Astro.url.pathname}/yundrung-bon`}
+      />
+    </div>
+  </div>
+</DefaultLayout>

@@ -1,0 +1,70 @@
+---
+import tengelek2Img from '@images/tengelek2.jpg';
+import DefaultLayout from '@layouts/Default.astro';
+import Image from 'astro/components/Image.astro';
+---
+
+<DefaultLayout title="About us">
+  <main class="mx-auto max-w-screen-xl px-5 pb-10">
+    <div class="header">
+      <a href="/about-us" class="c-neutral-6">back</a>
+      <h1 class="text-4xl c-neutral-6">About us</h1>
+    </div>
+    <div class="px-10">
+      <h2 class="mb-5 border-b-1 border-b-neutral-3 pb-2 text-2xl font-medium">
+        Geshe Lungtok Tenzin Gelek
+      </h2>
+      <div class="flex gap-10">
+        <aside class="w-1/4">
+          <figure>
+            <Image src={tengelek2Img} alt="Menri Yongdzin Rinpoche" />
+          </figure>
+        </aside>
+        <article class="w-3/4">
+          <p>
+            Geshe Lungtok Tenzin Gelek practices and teaches Bon Religious
+            Tradition. Geshe la has spent most of his life at Menri Monastery,
+            since 7 years of age, learning the Bon tradition.
+          </p>
+          <p>
+            HH 33rd Menri Trizin Lungtok Tenpai Nyima Rinpoche taught Geshe la
+            how to chant according to the Menri tradition. Geshe la was
+            appointed to the high position of Chant Master or Tsok Chen Um Zed,
+            to lead all the Menri monks proper tone and pronunciation. He held
+            the position for 3 years.
+          </p>
+          <p>
+            HH 33rd Menri Trizin Rinpoche also taught him Cham – the secret
+            dance, and held the position of Dance Master for 6 years.
+          </p>
+          <p>
+            HE Yongdzin Lopon Tenzin Namdak Rinpoche taught Geshe la the Bon
+            Scriptures of Sutra, Tantra and Dzogchen. Geshe la would memorize
+            all root text of these scriptures. He also learned poetry,
+            astrology, astronomy, Tibetan medicine, and methods for constructing
+            mandalas and stupas.
+          </p>
+          <p>
+            Geshe la taught Bon Mool Shastra (Bon root texts of Zhang-zhung) to
+            students at Central University of Tibetan Studies, Varanasi, India
+            for 14 years.
+          </p>
+          <p>
+            Geshe Lungtok Tenzin Gelek is dedicated to teaching and supporting
+            the scriptures to all who are interested.
+          </p>
+        </article>
+      </div>
+    </div>
+  </main>
+</DefaultLayout>
+
+<style>
+  .header {
+    @apply bg-gradient-to-l from-neutral-2 mx-10 mb-10 flex items-center justify-between rounded-b-md font-medium px-5 py-3;
+  }
+
+  p {
+    @apply mb-3;
+  }
+</style>

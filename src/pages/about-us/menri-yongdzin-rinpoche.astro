@@ -7,7 +7,9 @@ import Image from 'astro/components/Image.astro';
 <DefaultLayout title="About us">
   <main class="mx-auto max-w-screen-xl px-5 pb-10">
     <div class="header">
-      <a href="/about-us" class="c-neutral-6">back</a>
+      <a href="/about-us" class="flex items-center gap-2 c-neutral-6">
+        <div class="i-mdi-arrow-left-thin text-3xl"></div> back
+      </a>
       <h1 class="text-4xl c-neutral-6">About us</h1>
     </div>
     <div class="px-10">
@@ -262,23 +264,7 @@ import Image from 'astro/components/Image.astro';
     @apply bg-gradient-to-l from-neutral-2 mx-10 mb-10 flex items-center justify-between rounded-b-md font-medium px-5 py-3;
   }
 
-  h3 {
-    @apply mb-2 font-bold;
-  }
-
-  h4 {
-    @apply mb-2 font-medium;
-  }
-
   p {
     @apply mb-3;
-  }
-
-  ol {
-    @apply list-decimal;
-  }
-
-  li {
-    @apply ml-5;
   }
 </style>

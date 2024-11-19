@@ -7,24 +7,26 @@ import DefaultLayout from '@layouts/Default.astro';
 ---
 
 <DefaultLayout title="About us">
-  <div class="text-center">
-    <h1 class="text-4xl font-medium">About us</h1>
-    <div class="flex justify-center gap-10 p-10">
-      <CardItem
-        title="Yundrung Bon"
-        img={tonpashenrabImg.src}
-        link={`${Astro.url.pathname}/yundrung-bon`}
-      />
-      <CardItem
-        title="Menri Yongdzin Rinpoche"
-        img={lopon2Img.src}
-        link={`${Astro.url.pathname}/yundrung-bon`}
-      />
-      <CardItem
-        title="Geshe Lungtok Tenzin&nbsp;Gelek"
-        img={tengelek2Img.src}
-        link={`${Astro.url.pathname}/yundrung-bon`}
-      />
+  <main class="mx-auto max-w-screen-xl px-5 py-10">
+    <div class="text-center">
+      <h1 class="text-4xl font-medium">About us</h1>
+      <div class="flex justify-center gap-10 p-10">
+        <CardItem
+          title="Yundrung Bon"
+          img={tonpashenrabImg.src}
+          link={`${Astro.url.pathname}/yundrung-bon`}
+        />
+        <CardItem
+          title="Menri Yongdzin Rinpoche"
+          img={lopon2Img.src}
+          link={`${Astro.url.pathname}/menri-yongdzin-rinpoche`}
+        />
+        <CardItem
+          title="Geshe Lungtok Tenzin Gelek"
+          img={tengelek2Img.src}
+          link={`${Astro.url.pathname}/geshe-lungtok-tenzin-gelek`}
+        />
+      </div>
     </div>
-  </div>
+  </main>
 </DefaultLayout>

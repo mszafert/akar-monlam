@@ -1,4 +1,8 @@
 ---
+import CardItem from '@components/CardItem.astro';
+import trainingOngoingImg from '@images/training-ongoing.jpg';
+import trainingPastImg from '@images/training-past.jpg';
+import trainingUpcomingImg from '@images/training-upcoming.jpg';
 import DefaultLayout from '@layouts/Default.astro';
 ---
 
@@ -6,6 +10,69 @@ import DefaultLayout from '@layouts/Default.astro';
   <main class="mx-auto max-w-screen-xl px-5 py-10">
     <div class="text-center">
       <h1 class="text-4xl font-medium">Teachings</h1>
+      <div class="events">
+        <div class="th">
+          <h3>Upcommings events</h3>
+        </div>
+        <div class="th border-x border-x-neutral-3 border-dashed">
+          <h3>Ongoing events</h3>
+        </div>
+        <div class="th">
+          <h3>Past events</h3>
+        </div>
+        <div class="td justify-center">
+          <CardItem
+            date={new Date('2024-11-19')}
+            type="event"
+            title={[
+              'The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü',
+              'The Second Lamp',
+              'The Lamp of the Flesh Heart',
+            ]}
+            img={trainingUpcomingImg.src}
+            link={`${Astro.url.pathname}/test`}
+          />
+        </div>
+        <div class="td border-x border-x-neutral-3 border-dashed">
+          <CardItem
+            type="event"
+            title={[
+              'The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü',
+              'The Second Lamp',
+              'The Lamp of the Flesh Heart',
+            ]}
+            img={trainingOngoingImg.src}
+            link={`${Astro.url.pathname}/test`}
+          />
+        </div>
+        <div class="td">
+          <CardItem
+            type="event"
+            title={[
+              'The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü',
+              'The Second Lamp',
+              'The Lamp of the Flesh Heart',
+            ]}
+            img={trainingPastImg.src}
+            link={`${Astro.url.pathname}/test`}
+          />
+        </div>
+      </div>
     </div>
   </main>
 </DefaultLayout>
+
+<style>
+  h3 {
+    @apply text-2xl font-medium;
+  }
+
+  .events {
+    @apply grid grid-cols-3 mt-10 px-10;
+  }
+
+  .th,
+  .td {
+    @apply border-t border-t-neutral-3 border-dashed py-5 px-5;
+  }
+</style>

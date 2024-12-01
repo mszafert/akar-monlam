@@ -6,23 +6,15 @@ import trainingUpcomingImg from '@images/training-upcoming.jpg';
 import DefaultLayout from '@layouts/Default.astro';
 ---
 
-<DefaultLayout title="Teachings">
+<DefaultLayout title="Teachings events">
   <main class="mx-auto max-w-screen-xl px-5 py-10">
     <div class="text-center">
-      <h1 class="text-4xl font-medium">Teachings</h1>
+      <h1 class="text-4xl font-medium">Teachings events</h1>
       <div class="events">
-        <div class="th">
-          <h3>Upcommings events</h3>
-        </div>
-        <div class="th border-x border-x-neutral-3 border-dashed">
-          <h3>Ongoing events</h3>
-        </div>
-        <div class="th">
-          <h3>Past events</h3>
-        </div>
-        <div class="td justify-center">
+        <div>
           <CardItem
             date={new Date('2024-11-19')}
+            label={{ text: 'Upcoming', color: 'bg-blue' }}
             type="event"
             title={[
               'The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü',
@@ -30,31 +22,35 @@ import DefaultLayout from '@layouts/Default.astro';
               'The Lamp of the Flesh Heart',
             ]}
             img={trainingUpcomingImg.src}
-            link={`${Astro.url.pathname}/test`}
+            link={`${Astro.url.pathname}`}
           />
         </div>
-        <div class="td border-x border-x-neutral-3 border-dashed">
+        <div>
           <CardItem
+            date={new Date('2023-09-27')}
+            label={{ text: 'Ongoing', color: 'bg-red-6' }}
             type="event"
             title={[
-              'The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü',
-              'The Second Lamp',
-              'The Lamp of the Flesh Heart',
+              'Basic Knowledge of the Subject & Object of the Mind',
+              'Dudra',
+              'The collections of the basic knowledge of Sutra, Tantra, and Dzogchen',
             ]}
             img={trainingOngoingImg.src}
-            link={`${Astro.url.pathname}/test`}
+            link={`${Astro.url.pathname}`}
           />
         </div>
-        <div class="td">
+        <div>
           <CardItem
+            date={new Date('2023-09-03')}
+            label={{ text: 'Past', color: 'bg-neutral-6' }}
             type="event"
             title={[
               'The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü',
-              'The Second Lamp',
-              'The Lamp of the Flesh Heart',
+              'The first Lamp',
+              'The Lamp of the Abiding Base',
             ]}
             img={trainingPastImg.src}
-            link={`${Astro.url.pathname}/test`}
+            link={`${Astro.url.pathname}`}
           />
         </div>
       </div>
@@ -68,11 +64,6 @@ import DefaultLayout from '@layouts/Default.astro';
   }
 
   .events {
-    @apply grid grid-cols-3 mt-10 px-10;
-  }
-
-  .th,
-  .td {
-    @apply border-t border-t-neutral-3 border-dashed py-5 px-5;
+    @apply grid grid-cols-3 gap-10 my-10 px-10;
   }
 </style>

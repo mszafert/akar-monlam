@@ -1,0 +1,37 @@
+---
+import dayjs from 'dayjs';
+import advancedformat from 'dayjs/plugin/advancedFormat';
+
+dayjs.extend(advancedformat);
+
+
+interface Props {
+  img: string;
+  link: string;
+  title: string[];
+}
+
+const { title, link, img } = Astro.props;
+---
+
+<div class="card">
+  <a href={link}>
+    <div class="picture"></div>
+    <div class="title">{title}</div>
+  </a>
+</div>
+
+<style define:vars={{ backgroundImage: `url(${img})` }}>
+  .card {
+    @apply relative border-5 border-white rounded-xl shadow-xl h-full overflow-hidden hover:shadow-2xl;
+  }
+
+  .picture {
+    background-image: var(--backgroundImage);
+    @apply h-60 bg-cover bg-center;
+  }
+
+  .title {
+    @apply flex min-h-25 items-center justify-center px-10 py-5 text-2xl;
+  }
+</style>

@@ -1,5 +1,5 @@
 ---
-import CardItem from '@components/CardItem.astro';
+import DefaultCard from '@components/DefaultCard.astro';
 import lopon2Img from '@images/lopon2.jpg';
 import tengelek2Img from '@images/tengelek2.jpg';
 import tonpashenrabImg from '@images/tonpashenrab.jpg';
@@ -12,24 +12,21 @@ import DefaultLayout from '@layouts/Default.astro';
       <h1 class="text-4xl font-medium">About us</h1>
       <div class="flex justify-center gap-10 p-10">
         <div class="w-1/3">
-          <CardItem
-            type="default"
+          <DefaultCard
             title={['Yundrung Bon']}
             img={tonpashenrabImg.src}
             link={`${Astro.url.pathname}/yundrung-bon`}
           />
         </div>
         <div class="w-1/3">
-          <CardItem
-            type="default"
+          <DefaultCard
             title={['Menri Yongdzin Rinpoche']}
             img={lopon2Img.src}
             link={`${Astro.url.pathname}/menri-yongdzin-rinpoche`}
           />
         </div>
         <div class="w-1/3">
-          <CardItem
-            type="default"
+          <DefaultCard
             title={['Geshe Lungtok Tenzin Gelek']}
             img={tengelek2Img.src}
             link={`${Astro.url.pathname}/geshe-lungtok-tenzin-gelek`}

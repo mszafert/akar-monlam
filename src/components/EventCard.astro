@@ -1,0 +1,106 @@
+---
+import arrowRightIcon from '@icons/arrow-r.svg';
+import paypalIcon from '@icons/paypal.svg';
+import zoomIcon from '@icons/zoom.svg';
+import trainingOngoingImg from '@images/training-ongoing.jpg';
+import trainingPastImg from '@images/training-past.jpg';
+import trainingUpcomingImg from '@images/training-upcoming.jpg';
+import { Image } from 'astro:assets';
+import dayjs from 'dayjs';
+import advancedformat from 'dayjs/plugin/advancedFormat';
+
+dayjs.extend(advancedformat);
+
+
+interface Props {
+  date: Date;
+  label: 'upcoming' | 'ongoing' | 'past';
+  link: string;
+  title: string[];
+}
+
+const { date, title, label, link } = Astro.props;
+const eventLabel = {
+  upcoming: {
+    text: 'Upcoming',
+    color: 'bg-blue',
+    image: trainingUpcomingImg.src,
+  },
+  ongoing: {
+    text: 'Ongoing',
+    color: 'bg-red-6',
+    image: trainingOngoingImg.src,
+  },
+  past: {
+    text: 'Past',
+    color: 'bg-neutral-6',
+    image: trainingPastImg.src,
+  },
+};
+
+const eventImage = eventLabel[label]?.image;
+const eventDate = dayjs(date).format('Do of MMMM');
+---
+
+<div class="card">
+  <a href={link}>
+    <div class="picture"></div>
+    <div class="date">{eventDate}</div>
+    <div class={`label ${eventLabel[label].color}`}>
+    <Image src={arrowRightIcon} alt="" /> <span class="ml-2">{eventLabel[label].text}</span>
+    </div>
+    <div class="event-title">
+    <p class="font-light leading-tight">{title[0]}</p>
+    <p class="mt-3 font-medium">{title[1]}</p>
+    <p class="text-xl c-black font-bold leading-tight">{title[2]}</p>
+    </div>
+    <div class="event-footer">
+    <div class="flex gap-2">
+        <Image src={zoomIcon} alt="Zoom icon" title="Zoom" />
+        <Image src={paypalIcon} alt="Paypal icon" title="PayPal" />
+    </div>
+    <div class="flex items-center text-base hover:underline">
+        read more <div class="i-mdi-arrow-right ml-2 text-2xl"></div>
+    </div>
+    </div>
+  </a>
+</div>
+
+<style define:vars={{ backgroundImage: `url(${eventImage})` }}>
+  .card {
+    @apply relative border-5 border-white rounded-xl shadow-xl h-full overflow-hidden hover:shadow-2xl pb-15;
+  }
+
+  .picture {
+    background-image: var(--backgroundImage);
+    @apply h-60 bg-cover bg-center;
+  }
+
+  .title {
+    @apply flex min-h-25 items-center justify-center px-10 py-5 text-2xl;
+  }
+
+  .date {
+    @apply text-right py-1 px-2;
+  }
+
+  .label {
+    @apply c-white flex font-medium justify-end leading-tight mb-2 px-2 relative uppercase;
+  }
+
+  .label::before {
+    @apply absolute border-r-6 border-b-12 border-solid border-transparent border-r-white content-[''] h-0 top-0 right-0 w-0;
+  }
+
+  .label::after {
+    @apply absolute border-r-6 border-t-12 border-solid border-transparent border-r-white content-[''] h-0 bottom-0 right-0 w-0;
+  }
+
+  .event-title {
+    @apply px-2 text-right c-neutral-6;
+  }
+
+  .event-footer {
+    @apply absolute bottom-0 c-neutral-6 flex items-bottom justify-between mb-2 mt-5 px-2 w-full;
+  }
+</style>

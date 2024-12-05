@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  link: string;
+}
+
+const { title, link } = Astro.props;
+---
+
+<div class="header">
+  <a href={link} class="flex items-center gap-2 c-neutral-6">
+    <div class="i-mdi-arrow-left-thin text-3xl"></div> back
+  </a>
+  <h1 class="text-4xl c-neutral-6">{title}</h1>
+</div>
+
+<style>
+  .header {
+    @apply bg-gradient-to-l from-neutral-2 mx-10 mb-10 flex items-center justify-between rounded-b-md font-medium px-5 py-3;
+  }
+</style>

@@ -1,0 +1,125 @@
+---
+import SubHeader from '@components/SubHeader.astro';
+import theLampImg from '@images/the-lamp.png';
+import DefaultLayout from '@layouts/Default.astro';
+import Image from 'astro/components/Image.astro';
+---
+
+<DefaultLayout title="About us">
+  <main class="mx-auto max-w-screen-xl px-5 pb-10">
+    <SubHeader title="teachings events" link="/teachings" />
+    <div class="px-10">
+      <header class="mb-10">
+        <p class="mx-5 mb-1"><strong>Data:</strong> 19th of November 2024</p>
+        <h1 class="flex flex-col rounded-lg bg-neutral-1 p-5">
+          <span class="text-2xl">The secret instructions of the Six Lamps of the Dzogchen Zhang
+            Zhung Nyengyü</span
+          >
+          <span class="text-xl font-bold">The Second Lamp</span>
+          <span class="text-3xl font-bold">The Lamp of the Flesh Heart</span>
+        </h1>
+      </header>
+      <div class="flex gap-10">
+        <aside class="w-1/4">
+          <figure>
+            <Image src={theLampImg} alt="The Lamp" />
+            <figcaption class="c-gray-5">
+              pic. Buddha Tönpa Shenrab Miwoche, Founder of Yungdrung Bon
+            </figcaption>
+          </figure>
+        </aside>
+        <article class="w-3/4 c-neutral-6">
+          <div class="info">
+            <ul class="border-l-5">
+              <li>5 Sessions total</li>
+              <li>starting 19th of November (Tuesday)</li>
+              <li>Sessions - Every Tuesday & Thursday</li>
+              <li>Donation: $100 USD</li>
+              <li>6:00 - 7:30pm ET via ZOOM</li>
+              <li>*Payment plan options & limited scholarships available</li>
+              <li>
+                RECORDINGS AVAILABLE FOR ALL SESSIONS for one week after each
+                session for those who can't participate live and for review
+              </li>
+            </ul>
+          </div>
+          <p class="py-10 text-center text-2xl c-neutral-6">***</p>
+          <h2 class="mb-5 text-xl font-bold">
+            The main points of the first lamp
+          </h2>
+          <p>Main subject</p>
+          <p>
+            A. The abiding mode of the essence of the base of the natural state
+            of the mind.<br />
+            B. The way cyclic existence and transcendence of suffering arise.
+          </p>
+          <h3>
+            A 1. The abiding mode of the Essence of the Base of the Natural
+            State of the mind
+          </h3>
+          <ol>
+            <li>The universal ground it as primordial purity.</li>
+            <li>
+              The universal ground it as spontaneous present. The universal
+              ground it as neutral.
+            </li>
+            <li>The universal ground it as the single sphere.</li>
+          </ol>
+          <h3>A 2. The abiding mode of Rigpa</h3>
+          <ol>
+            <li>The basis of arising of self-knowing Rigpa Wisdom.</li>
+            <li>The essence of self-knowing Rigpa primordial wisdom.</li>
+            <li>The dynamic energy of self-knowing Rigpa primordial wisdom.</li>
+            <li>The synonyms of self-knowing Rigpa primordial wisdom.</li>
+            <li>
+              The way self-knowing Rigpa arises in the minds of sentient beings.
+            </li>
+            <li>
+              That Rigpa primordial wisdom is the root source of cyclic
+              existence and the transcendence of suffering.
+            </li>
+          </ol>
+          <h3>A 3. Third, the mode of abiding of the Intellect</h3>
+          <ol>
+            <li>The basis of the arising of the Intellect.</li>
+            <li>The essence of the Intellect.</li>
+            <li>The synonyms of the Intellect.</li>
+          </ol>
+          <h3>
+            B 1. The way cyclic existence and transcendence of suffering arise
+          </h3>
+          <ol>
+            <li>How Küntu Zangpo was primordially awakened</li>
+            <li>How the primordial wisdom of Rigpa arises</li>
+            <li>How Rigpa attains freedom</li>
+            <li>How the emanations of transcendence of suffering arise</li>
+            <li>How sentient beings wander in cyclic existence</li>
+            <li>How cyclic existence arises</li>
+            <li>How karmic traces collect in the universal ground</li>
+            <li>How the outer world arises from the mind.</li>
+            <li>How sentient beings arise from the mind</li>
+            <li>How cyclic existence arises from not recognizing Rigpa</li>
+          </ol>
+        </article>
+      </div>
+    </div>
+  </main>
+</DefaultLayout>
+
+<style>
+  h3 {
+    @apply mt-2 font-bold;
+  }
+
+  article p {
+    @apply mb-3;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  li {
+    @apply ml-5;
+  }
+</style>

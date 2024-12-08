@@ -1,4 +1,5 @@
 ---
+import Button from '@components/Button.astro';
 import SubHeader from '@components/SubHeader.astro';
 import theLampImg from '@images/the-lamp.png';
 import DefaultLayout from '@layouts/Default.astro';
@@ -7,7 +8,7 @@ import Image from 'astro/components/Image.astro';
 
 <DefaultLayout title="About us">
   <main class="mx-auto max-w-screen-xl px-5 pb-10">
-    <SubHeader title="teachings events" link="/teachings" />
+    <SubHeader title="Teachings events" link="/teachings" />
     <div class="px-10">
       <header class="mb-10">
         <p class="mx-5 mb-1"><strong>Data:</strong> 10th of December 2024</p>
@@ -18,7 +19,7 @@ import Image from 'astro/components/Image.astro';
         </h1>
         <p class="p-5 text-right">
           Register for upcoming retreat
-          <button class="button">Registration</button>
+          <Button>Registration</Button>
         </p>
       </header>
       <div class="flex gap-10">
@@ -49,11 +50,11 @@ import Image from 'astro/components/Image.astro';
           </h2>
           <p>The Lamp of the Smooth White Channel is the key instruction on the arising of all-pervasive primordial wisdom through the path of the central channel.</p>
           <ol>
-            <li>1. How the body and mind are generated in the mother's womb through the five elements.</li>
-            <li>2. How the three channels and six chakras are formed.</li>
-            <li>3. How the five organs, five sense powers, the limbs and secondary limbs arise.</li>
-            <li>4. How the branch channels and secondary channels divide.</li>
-            <li>5. How Primordial Wisdom arises in the path of the central channel.</li>
+            <li>How the body and mind are generated in the mother's womb through the five elements.</li>
+            <li>How the three channels and six chakras are formed.</li>
+            <li>How the five organs, five sense powers, the limbs and secondary limbs arise.</li>
+            <li>How the branch channels and secondary channels divide.</li>
+            <li>How Primordial Wisdom arises in the path of the central channel.</li>
           </ol>
           <p><i>Tashi Delek to all</i></p>
         </article>
@@ -71,15 +72,11 @@ import Image from 'astro/components/Image.astro';
     @apply my-3;
   }
 
-  artcle ol {
-    @apply mb-3 list-decimal;
+  article ol {
+    @apply list-decimal mb-3;
   }
 
   li {
     @apply ml-5;
-  }
-
-  button {
-    @apply ml-5 rounded-lg px-15 py-3 text-xl font-bold bg-neutral-6 hover:bg-neutral-9 c-white transition-all;
   }
 </style>

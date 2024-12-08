@@ -1,4 +1,5 @@
 ---
+import Button from '@components/Button.astro';
 import SubHeader from '@components/SubHeader.astro';
 import dudraPosterImg from '@images/dudra-poster.jpg';
 import DefaultLayout from '@layouts/Default.astro';
@@ -19,6 +20,10 @@ import Image from 'astro/components/Image.astro';
             Dzogchen</span
           >
         </h1>
+        <p class="p-5 text-right">
+          Register for upcoming retreat
+          <Button>Registration</Button>
+        </p>
       </header>
       <div class="flex gap-10">
         <aside class="w-1/4">
@@ -51,7 +56,7 @@ import Image from 'astro/components/Image.astro';
             and definienda provides a solid foundation for receiving teachings
             and enriches the practice experience.
           </p>
-          <p class="font-italic">Tashi Delek to all</p>
+          <p><i>Tashi Delek to all</i></p>
         </article>
       </div>
     </div>
@@ -65,10 +70,6 @@ import Image from 'astro/components/Image.astro';
 
   article p {
     @apply mb-3;
-  }
-
-  ol {
-    @apply list-decimal;
   }
 
   li {

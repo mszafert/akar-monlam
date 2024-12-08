@@ -1,4 +1,5 @@
 ---
+import Button from '@components/Button.astro';
 import SubHeader from '@components/SubHeader.astro';
 import theLampImg from '@images/the-lamp.png';
 import DefaultLayout from '@layouts/Default.astro';
@@ -12,12 +13,16 @@ import Image from 'astro/components/Image.astro';
       <header class="mb-10">
         <p class="mx-5 mb-1"><strong>Data:</strong> 19th of November 2024</p>
         <h1 class="flex flex-col rounded-lg bg-neutral-1 p-5">
-          <span class="text-2xl">The secret instructions of the Six Lamps of the Dzogchen Zhang
-            Zhung Nyengyü</span
-          >
-          <span class="text-xl font-bold">The Second Lamp</span>
-          <span class="text-3xl font-bold">The Lamp of the Flesh Heart</span>
+          <span class="text-2xl">
+            The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü
+          </span>
+          <span class="text-xl font-bold">The first Lamp</span>
+          <span class="text-3xl font-bold">The Lamp of the Abiding Base</span>
         </h1>
+        <p class="p-5 text-right">
+          Register for upcoming retreat
+          <Button disabled>Registration</Button>
+        </p>
       </header>
       <div class="flex gap-10">
         <aside class="w-1/4">
@@ -31,16 +36,11 @@ import Image from 'astro/components/Image.astro';
         <article class="w-3/4 c-neutral-6">
           <div class="info">
             <ul class="border-l-5">
-              <li>5 Sessions total</li>
-              <li>starting 19th of November (Tuesday)</li>
+              <li>20 Sessions total</li>
+              <li><strong>starting 3th of September (Tuesday)</strong></li>
               <li>Sessions - Every Tuesday & Thursday</li>
-              <li>Donation: $100 USD</li>
-              <li>6:00 - 7:30pm ET via ZOOM</li>
-              <li>*Payment plan options & limited scholarships available</li>
-              <li>
-                RECORDINGS AVAILABLE FOR ALL SESSIONS for one week after each
-                session for those who can't participate live and for review
-              </li>
+              <li>6:00-7:300pm ET via ZOOM</li>
+              <li><strong>*Payment plan options & limited scholarships available</strong></li>
             </ul>
           </div>
           <p class="py-10 text-center text-2xl c-neutral-6">***</p>

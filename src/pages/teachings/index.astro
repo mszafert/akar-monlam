@@ -22,18 +22,6 @@ import DefaultLayout from '@layouts/Default.astro';
         </div>
         <div>
           <EventCard
-            date={new Date('2024-11-19')}
-            label="ongoing"
-            title={[
-              'The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü',
-              'The Second Lamp',
-              'The Lamp of the Flesh Heart',
-            ]}
-            link={`${Astro.url.pathname}/the-second-lamp`}
-          />
-        </div>
-        <div>
-          <EventCard
             date={new Date('2023-09-27')}
             label="ongoing"
             title={[
@@ -46,7 +34,19 @@ import DefaultLayout from '@layouts/Default.astro';
         </div>
         <div>
           <EventCard
-            date={new Date('2023-09-03')}
+            date={new Date('2024-11-19')}
+            label="past"
+            title={[
+              'The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü',
+              'The Second Lamp',
+              'The Lamp of the Flesh Heart',
+            ]}
+            link={`${Astro.url.pathname}/the-second-lamp`}
+          />
+        </div>
+        <div>
+          <EventCard
+            date={new Date('2024-09-03')}
             label="past"
             title={[
               'The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü',
@@ -54,6 +54,18 @@ import DefaultLayout from '@layouts/Default.astro';
               'The Lamp of the Abiding Base',
             ]}
             link={`${Astro.url.pathname}/the-first-lamp`}
+          />
+        </div>
+        <div>
+          <EventCard
+            date={new Date('2024-03-19')}
+            label="past"
+            title={[
+              'The Instruction Manual of the Stages of the Path of Clear Light Dzogpa Chenpo',
+              'Second Main Section: Tӧgal with Geshe Tenzin Gelek Rinpoche',
+              'Heart Drops of Küntu Zangpo',
+            ]}
+            link={`${Astro.url.pathname}/second-main-section`}
           />
         </div>
       </div>

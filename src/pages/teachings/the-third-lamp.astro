@@ -22,8 +22,8 @@ import Image from 'astro/components/Image.astro';
           <Button>Registration</Button>
         </p>
       </header>
-      <div class="flex gap-10">
-        <aside class="w-1/4">
+      <div class="grid gap-10 md:grid-cols-3">
+        <aside>
           <figure>
             <Image src={theLampImg} alt="The Lamp" />
             <figcaption class="c-gray-5">
@@ -31,7 +31,7 @@ import Image from 'astro/components/Image.astro';
             </figcaption>
           </figure>
         </aside>
-        <article class="w-3/4 c-neutral-6">
+        <article class="c-neutral-6 md:col-span-2">
           <div class="info">
             <ul class="border-l-5">
               <li>10 Sessions total</li>

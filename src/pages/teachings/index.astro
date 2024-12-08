@@ -10,6 +10,18 @@ import DefaultLayout from '@layouts/Default.astro';
       <div class="events">
         <div>
           <EventCard
+            date={new Date('2024-12-10')}
+            label="upcoming"
+            title={[
+              'The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü',
+              'The Third Lamp',
+              'The Lamp of the Smooth White Channel',
+            ]}
+            link={`${Astro.url.pathname}/the-third-lamp`}
+          />
+        </div>
+        <div>
+          <EventCard
             date={new Date('2024-11-19')}
             label="ongoing"
             title={[

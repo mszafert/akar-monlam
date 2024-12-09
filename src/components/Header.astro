@@ -10,9 +10,11 @@ import { Image } from 'astro:assets';
 <header class="mx-auto max-w-screen-xl px-5">
   <Menu />
   <div class="bg-image min-h-md flex flex-col flex-justify-between rounded-2xl bg-cover p-5">
-    <p class="flex items-start justify-center gap-50">
+    <p class="img-row-one">
+      <Image src={tapihritsaImg} class="mt--15 md:mt--20" alt="Akar Bon Center" />
+    </p>
+    <p class="img-row-two">
       <Image src={loponImg} class="img" alt="Lopon" />
-      <Image src={tapihritsaImg} class="mt--25" alt="Akar Bon Center" />
       <Image src={tengelekImg} class="img" alt="Tengelek" />
     </p>
     <p class="mt-5 text-center text-xl c-white">
@@ -25,9 +27,26 @@ import { Image } from 'astro:assets';
 <style define:vars={{ backgroundImage: `url(${backgroundImage.src})` }}>
   .bg-image {
     background-image: var(--backgroundImage);
+    @apply bg-cover bg-center;
   }
 
   .img {
     @apply border-2 border-white rounded-full shadow-lg;
+  }
+
+  .img-row-one {
+    @apply flex justify-center;
+
+    img {
+      @apply w-[150px] md:w-a;
+    }
+  }
+
+  .img-row-two {
+    @apply flex justify-between mt--20 md:mt--70 md:mx-20;
+
+    img {
+      @apply w-[120px] md:w-a;
+    }
   }
 </style>

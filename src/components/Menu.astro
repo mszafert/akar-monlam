@@ -2,18 +2,34 @@
 import AkarBonLogo from '@components/AkarBonLogo.astro';
 ---
 
-<nav class="mx-auto max-w-screen-xl flex justify-between p-5">
+<nav>
   <a href="/" class="logo"><AkarBonLogo /></a>
-  <ul class="flex items-center gap-10 text-xl">
+  <ul>
     <li><a href="/about-us">About us</a></li>
     <li><a href="/teachings">Teachings</a></li>
     <li><a href="/donate">Donate</a></li>
     <li><a href="/contact">Contact</a></li>
   </ul>
+  <button><div class="i-mdi-menu" /></button>
 </nav>
-
 <style>
+  nav {
+    @apply mx-auto max-w-screen-xl flex justify-between p-4;
+  }
+
+  ul {
+    @apply hidden lg:flex items-center gap-10 text-xl;
+  }
+
   li a {
-    @apply hover:text-blue-5;
+    @apply hover:c-blue transition-all;
+  }
+
+  button {
+    @apply lg:hidden p-2;
+  }
+
+  .i-mdi-menu {
+    @apply text-3xl;
   }
 </style>

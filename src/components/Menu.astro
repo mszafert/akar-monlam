@@ -3,18 +3,25 @@ import AkarBonLogo from '@components/AkarBonLogo.astro';
 ---
 
 <nav>
-  <a href="/" class="logo"><AkarBonLogo /></a>
-  <ul>
-    <li><a href="/about-us">About us</a></li>
-    <li><a href="/teachings">Teachings</a></li>
-    <li><a href="/donate">Donate</a></li>
-    <li><a href="/contact">Contact</a></li>
-  </ul>
-  <button><div class="i-mdi-menu" /></button>
+  <div class="wrapper">
+    <a href="/" class="logo"><AkarBonLogo /></a>
+    <ul>
+      <li><a href="/about-us">About us</a></li>
+      <li><a href="/teachings">Teachings</a></li>
+      <li><a href="/donate">Donate</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <button><div class="i-mdi-menu" /></button>
+  </div>
 </nav>
+
 <style>
   nav {
-    @apply mx-auto max-w-screen-xl flex justify-between p-4;
+    @apply fixed w-full top-0 z-1;
+  }
+
+  .wrapper {
+    @apply mx-auto max-w-screen-xl flex justify-between py-4 px-5 backdrop-blur bg-white bg-opacity-50;
   }
 
   ul {
@@ -26,7 +33,7 @@ import AkarBonLogo from '@components/AkarBonLogo.astro';
   }
 
   button {
-    @apply lg:hidden p-2;
+    @apply lg:hidden px-2;
   }
 
   .i-mdi-menu {

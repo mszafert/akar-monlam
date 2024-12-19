@@ -1,5 +1,9 @@
-const menuLinks = document.querySelector('.menu-links');
-
 document.querySelector('.menu-nav')?.addEventListener('click', () => {
-  menuLinks?.classList.toggle('expanded');
+  document.querySelector('.menu-links')?.classList.toggle('expanded');
+});
+
+document.addEventListener('click', (e) => {
+  if (!document.querySelector('nav')?.contains(e.target as Node)) {
+    document.querySelector('.menu-links')?.classList.remove('expanded');
+  }
 });

@@ -4,14 +4,16 @@ import AkarBonLogo from '@components/AkarBonLogo.astro';
 
 <nav>
   <div class="wrapper">
-    <a href="/" class="logo"><AkarBonLogo /></a>
-    <ul>
+    <div class="flex justify-between">
+      <a href="/" class="logo"><AkarBonLogo /></a>
+      <button class="menu-nav"><div class="i-mdi-menu" /></button>
+    </div>
+    <ul class="menu-links">
       <li><a href="/about-us">About us</a></li>
       <li><a href="/teachings">Teachings</a></li>
       <li><a href="/donate">Donate</a></li>
       <li><a href="/contact">Contact</a></li>
     </ul>
-    <button><div class="i-mdi-menu" /></button>
   </div>
 </nav>
 
@@ -21,18 +23,26 @@ import AkarBonLogo from '@components/AkarBonLogo.astro';
   }
 
   .wrapper {
-    @apply mx-auto max-w-screen-xl flex justify-between py-4 px-5 backdrop-blur bg-white/50;
+    @apply mx-auto max-w-screen-xl lg:flex justify-between py-4 px-10 backdrop-blur bg-white/50;
   }
 
-  ul {
-    @apply hidden lg:flex items-center gap-10 text-xl;
+  .menu-links {
+    @apply hidden mt-5 lg:mt-0 lg:flex items-center gap-10 text-xl;
+  }
+
+  .menu-links.expanded {
+    @apply block lg:hidden;
+  }
+
+  li {
+    @apply py-2 lg:py-0 text-right;
   }
 
   li a {
     @apply hover:c-blue transition-all;
   }
 
-  button {
+  .menu-nav {
     @apply lg:hidden px-2;
   }
 

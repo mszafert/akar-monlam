@@ -17,6 +17,18 @@ import AkarBonLogo from '@components/AkarBonLogo.astro';
   </div>
 </nav>
 
+<script>
+  document.querySelector('.menu-nav')?.addEventListener('click', () => {
+    document.querySelector('.menu-links')?.classList.toggle('expanded');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!document.querySelector('nav')?.contains(e.target as Node)) {
+      document.querySelector('.menu-links')?.classList.remove('expanded');
+    }
+  });
+</script>
+
 <style>
   nav {
     @apply fixed w-full top-0 z-1;

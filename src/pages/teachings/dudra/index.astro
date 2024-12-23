@@ -1,5 +1,4 @@
 ---
-import Button from '@components/Button.astro';
 import SubHeader from '@components/SubHeader.astro';
 import dudraPosterImg from '@images/dudra-poster.jpg';
 import DefaultLayout from '@layouts/Default.astro';
@@ -11,7 +10,7 @@ import Image from 'astro/components/Image.astro';
     <SubHeader title="teachings events" link="/teachings" />
     <div class="md:px-10">
       <header class="mb-10">
-        <p class="mx-5 mb-1"><strong>Data:</strong> 27th of September 2024</p>
+        <p class="mx-5 mb-1"><strong>Date:</strong> 27th of September 2024</p>
         <h1 class="flex flex-col rounded-lg bg-neutral-1 p-5">
           <span class="text-xl md:text-2xl">Basic Knowledge of the Subject & Object of the Mind</span>
           <span class="my-2 text-lg font-bold md:text-xl">Dudra</span>
@@ -21,7 +20,7 @@ import Image from 'astro/components/Image.astro';
         </h1>
         <p class="p-5 text-center md:text-right">
           <span class="mb-3 inline-block md:mr-5">Register for upcoming retreat</span>
-          <Button>Registration</Button>
+          <a href="/teachings/dudra/registration" class="register">Registration</a>
         </p>
       </header>
       <div class="grid gap-10 md:grid-cols-3">
@@ -73,5 +72,9 @@ import Image from 'astro/components/Image.astro';
 
   li {
     @apply ml-5;
+  }
+
+  .register {
+    @apply inline-block rounded-lg px-15 py-3 text-xl font-bold bg-blue hover:bg-neutral-9 c-white transition-all w-full md:w-auto;
   }
 </style>

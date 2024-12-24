@@ -18,7 +18,7 @@ import Image from 'astro/components/Image.astro';
         </h1>
         <p class="p-5 text-center md:text-right">
           <span class="mb-3 inline-block md:mr-5">Register for upcoming retreat</span>
-          <a href="/teachings/the-third-lamp/registration" class="register">Registration</a>
+          <a href="/teachings/the-third-lamp/registration" class="register inactive">Registration</a>
         </p>
       </header>
       <div class="grid gap-10 md:grid-cols-3">
@@ -81,5 +81,9 @@ import Image from 'astro/components/Image.astro';
 
   .register {
     @apply inline-block rounded-lg px-15 py-3 text-xl font-bold bg-blue hover:bg-neutral-9 c-white transition-all w-full md:w-auto;
+  }
+
+  .register.inactive {
+    @apply bg-neutral-4 cursor-not-allowed;
   }
 </style>

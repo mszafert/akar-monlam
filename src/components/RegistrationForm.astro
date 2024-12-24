@@ -1,0 +1,58 @@
+<form action="">
+  <div class="row grid-cols-2">
+    <div>
+      <label for="first-name">First Name:</label>
+      <input type="text" id="first-name" name="first-name" required />
+    </div>
+    <div>
+      <label for="last-name">Last Name:</label>
+      <input type="text" id="last-name" name="last-name" required />
+    </div>
+  </div>
+  <div class="row grid-cols-2">
+    <div>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+    <div>
+      <label for="studie-question">Have you studied with Geshe Tenzin Gelek before?</label>
+      <select name="studie-question" id="studie-question">
+        <option value="" disabled selected>Please select</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <div>
+        <label for="administrative-questions">
+          Any administrative questions you might have, payment plan or limited
+          scholarship inquiry:
+        </label>
+        <textarea name="administrative-questions" id="administrative-questions"></textarea>
+      </div>
+    </div>
+  </div>
+  <button type="submit">Register</button>
+</form>
+
+<style>
+  label {
+    @apply block;
+  }
+
+  input,
+  select,
+  textarea {
+    @apply block w-full p-2 border border-neutral-2 rounded-md;
+  }
+
+  button {
+    @apply mt-5 p-2;
+  }
+
+  .row {
+    @apply grid gap-5 mb-10;
+  }
+</style>

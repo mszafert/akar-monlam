@@ -1,4 +1,5 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import arrowRightIcon from '@icons/arrow-r.svg';
 import paypalIcon from '@icons/paypal.svg';
 import zoomIcon from '@icons/zoom.svg';
@@ -11,48 +12,48 @@ import advancedformat from 'dayjs/plugin/advancedFormat';
 
 dayjs.extend(advancedformat);
 
+type Props = CollectionEntry<'teachings'>;
 
-interface Props {
-  date: Date;
-  label: 'upcoming' | 'ongoing' | 'past';
-  link: string;
-  title: string[];
-}
+const { id, data } = Astro.props;
 
-const { date, title, label, link } = Astro.props;
-const eventLabel = {
+const eventType = {
   upcoming: {
-    text: 'Upcoming',
+    label: 'Upcoming',
     color: 'bg-blue',
-    image: trainingUpcomingImg.src,
+    bgImage: trainingUpcomingImg.src,
   },
   ongoing: {
-    text: 'Ongoing',
+    label: 'Ongoing',
     color: 'bg-red-6',
-    image: trainingOngoingImg.src,
+    bgImage: trainingOngoingImg.src,
   },
   past: {
-    text: 'Past',
+    label: 'Past',
     color: 'bg-neutral-6',
-    image: trainingPastImg.src,
+    bgImage: trainingPastImg.src,
   },
 };
 
-const eventImage = eventLabel[label]?.image;
-const eventDate = dayjs(date).format('Do of MMMM');
+const event = {
+  url: `${Astro.url.href}/${id}`,
+  date: dayjs(data.date).format('Do of MMMM'),
+  type: eventType[data.type],
+  title: data.title,
+};
 ---
 
 <div class="card">
-  <a href={link}>
+  <a href={event.url}>
     <div class="picture"></div>
-    <div class="date">{eventDate}</div>
-    <div class={`label ${eventLabel[label].color}`}>
-      <Image src={arrowRightIcon} alt="" /> <span class="ml-2">{eventLabel[label].text}</span>
+    <div class="date">{event.date}</div>
+    <div class={`label ${event.type.color}`}>
+      <Image src={arrowRightIcon} alt="" />
+      <span class="ml-2">{event.type.label}</span>
     </div>
     <div class="event-title">
-      <p class="font-light leading-tight">{title[0]}</p>
-      <p class="mt-3 font-medium">{title[1]}</p>
-      <p class="text-xl c-black font-bold leading-tight">{title[2]}</p>
+      <p class="font-light leading-tight">{event.title[0]}</p>
+      <p class="mt-3 font-medium">{event.title[1]}</p>
+      <p class="text-xl c-black font-bold leading-tight">{event.title[2]}</p>
     </div>
     <div class="event-footer">
       <div class="flex gap-2">
@@ -66,7 +67,7 @@ const eventDate = dayjs(date).format('Do of MMMM');
   </a>
 </div>
 
-<style define:vars={{ backgroundImage: `url(${eventImage})` }}>
+<style define:vars={{ backgroundImage: `url(${event.type.bgImage})` }}>
   .card {
     @apply relative border-5 border-white rounded-xl shadow-xl h-full overflow-hidden hover:shadow-2xl pb-15 transition-all;
   }

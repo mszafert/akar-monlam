@@ -1,73 +1,25 @@
 ---
 import EventCard from '@components/EventCard.astro';
 import DefaultLayout from '@layouts/Default.astro';
+import { getCollection } from 'astro:content';
+
+const teachings = await getCollection('teachings');
 ---
 
 <DefaultLayout title="Teachings events">
   <main class="mx-auto max-w-screen-xl px-5 py-10">
-    <div class="text-center">
-      <h1 class="text-4xl font-medium">Teachings events</h1>
+    <div>
+      <h1 class="text-center text-4xl font-medium">Teachings events</h1>
       <div class="events">
-        <div>
-          <EventCard
-            date={new Date('2024-12-10')}
-            label="ongoing"
-            title={[
-              'The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü',
-              'The Third Lamp',
-              'The Lamp of the Smooth White Channel',
-            ]}
-            link={`${Astro.url.pathname}/the-third-lamp`}
-          />
-        </div>
-        <div>
-          <EventCard
-            date={new Date('2023-09-27')}
-            label="ongoing"
-            title={[
-              'Basic Knowledge of the Subject & Object of the Mind',
-              'Dudra',
-              'The collections of the basic knowledge of Sutra, Tantra, and Dzogchen',
-            ]}
-            link={`${Astro.url.pathname}/dudra`}
-          />
-        </div>
-        <div>
-          <EventCard
-            date={new Date('2024-11-19')}
-            label="past"
-            title={[
-              'The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü',
-              'The Second Lamp',
-              'The Lamp of the Flesh Heart',
-            ]}
-            link={`${Astro.url.pathname}/the-second-lamp`}
-          />
-        </div>
-        <div>
-          <EventCard
-            date={new Date('2024-09-03')}
-            label="past"
-            title={[
-              'The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü',
-              'The first Lamp',
-              'The Lamp of the Abiding Base',
-            ]}
-            link={`${Astro.url.pathname}/the-first-lamp`}
-          />
-        </div>
-        <div>
-          <EventCard
-            date={new Date('2024-03-19')}
-            label="past"
-            title={[
-              'The Instruction Manual of the Stages of the Path of Clear Light Dzogpa Chenpo',
-              'Second Main Section: Tӧgal with Geshe Tenzin Gelek Rinpoche',
-              'Heart Drops of Küntu Zangpo',
-            ]}
-            link={`${Astro.url.pathname}/second-main-section`}
-          />
-        </div>
+        {teachings.map(teaching => (
+          <div>
+            <EventCard
+              id={teaching.id}
+              collection="teachings"
+              data={teaching.data}
+            />
+          </div>
+        ))}
       </div>
     </div>
   </main>

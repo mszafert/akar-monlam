@@ -1,6 +1,6 @@
 ---
 date: 2025-01-07
-type: ongoing
+status: ongoing
 image: images/the-lamp.png
 imageCaption: pic. The Lamp
 imageAlt: The Lamp

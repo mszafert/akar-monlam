@@ -18,7 +18,7 @@ interface Props {
 
 const { id, data } = Astro.props.eventData;
 
-const eventType = {
+const statusType = {
   upcoming: {
     label: 'Upcoming',
     color: 'bg-blue',
@@ -39,7 +39,7 @@ const eventType = {
 const event = {
   url: `${Astro.url.href}/${id}`,
   date: dayjs(data.date).format('Do of MMMM'),
-  type: eventType[data.type],
+  status: statusType[data.status],
   title: data.title,
 };
 ---
@@ -48,9 +48,9 @@ const event = {
   <a href={event.url}>
     <div class="picture"></div>
     <div class="date">{event.date}</div>
-    <div class={`label ${event.type.color}`}>
+    <div class={`label ${event.status.color}`}>
       <Image src={arrowRightIcon} alt="" />
-      <span class="ml-2">{event.type.label}</span>
+      <span class="ml-2">{event.status.label}</span>
     </div>
     <div class="event-title">
       <p class="font-light leading-tight">{event.title[0]}</p>
@@ -69,7 +69,7 @@ const event = {
   </a>
 </div>
 
-<style define:vars={{ backgroundImage: `url(${event.type.bgImage})` }}>
+<style define:vars={{ backgroundImage: `url(${event.status.bgImage})` }}>
   .card {
     @apply relative border-5 border-white rounded-xl shadow-xl h-full overflow-hidden hover:shadow-2xl pb-15 transition-all;
   }

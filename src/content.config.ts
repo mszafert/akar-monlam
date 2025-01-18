@@ -6,7 +6,7 @@ export const collections = {
     loader: glob({ pattern: '**/[^_]*.md', base: './src/content/teachings' }),
     schema: ({ image }) => z.object({
       date: z.date(),
-      type: z.ZodEnum.create(['upcoming', 'ongoing', 'past']),
+      status: z.ZodEnum.create(['upcoming', 'ongoing', 'past']),
       image: image().optional(),
       imageCaption: z.string().optional(),
       imageAlt: z.string().optional(),

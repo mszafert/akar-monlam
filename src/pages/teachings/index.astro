@@ -6,17 +6,17 @@ import { getCollection } from 'astro:content';
 const teachings = await getCollection('teachings');
 
 const upcomingTeachings = teachings
-  .filter(teaching => teaching.data.type === 'upcoming')
+  .filter(teaching => teaching.data.status === 'upcoming')
   .sort(
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
   );
 const ongoingTeachings = teachings
-  .filter(teaching => teaching.data.type === 'ongoing')
+  .filter(teaching => teaching.data.status === 'ongoing')
   .sort(
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
   );
 const pastTeachings = teachings
-  .filter(teaching => teaching.data.type === 'past')
+  .filter(teaching => teaching.data.status === 'past')
   .sort(
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
   );

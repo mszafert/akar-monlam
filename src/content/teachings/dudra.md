@@ -1,6 +1,6 @@
 ---
 date: 2024-09-27
-type: ongoing
+status: ongoing
 image: images/dudra-poster.jpg
 imageCaption: pic. Buddha Tönpa Shenrab Miwoche, Founder of Yungdrung Bon
 title:

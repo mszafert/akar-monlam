@@ -1,6 +1,6 @@
 ---
 date: 2024-03-19
-type: past
+status: past
 image: images/kuntuzangpo.png
 imageCaption: pic. Küntu Zangpo
 imageAlt: Kuntuzangpo

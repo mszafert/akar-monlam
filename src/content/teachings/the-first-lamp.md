@@ -1,6 +1,6 @@
 ---
 date: 2024-09-03
-type: past
+status: past
 image: images/the-lamp.png
 imageCaption: pic. The Lamp
 imageAlt: The Lamp

@@ -4,6 +4,22 @@ import DefaultLayout from '@layouts/Default.astro';
 import { getCollection } from 'astro:content';
 
 const teachings = await getCollection('teachings');
+
+const upcomingTeachings = teachings
+  .filter(teaching => teaching.data.type === 'upcoming')
+  .sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+  );
+const ongoingTeachings = teachings
+  .filter(teaching => teaching.data.type === 'ongoing')
+  .sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+  );
+const pastTeachings = teachings
+  .filter(teaching => teaching.data.type === 'past')
+  .sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+  );
 ---
 
 <DefaultLayout title="Teachings events">
@@ -11,11 +27,13 @@ const teachings = await getCollection('teachings');
     <div>
       <h1 class="text-center text-4xl font-medium">Teachings events</h1>
       <div class="grid my-10 gap-10 lg:grid-cols-3 md:grid-cols-2 sm:px-10">
-        {teachings.map(teaching => (
-          <div>
-            <EventCard eventData={teaching} />
-          </div>
-        ))}
+        {[...upcomingTeachings, ...ongoingTeachings, ...pastTeachings].map(
+          teaching => (
+            <div>
+              <EventCard eventData={teaching} />
+            </div>
+          ),
+        )}
       </div>
     </div>
   </main>

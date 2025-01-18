@@ -1,20 +1,16 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import EventCard from '@components/EventCard.astro';
 import DefaultLayout from '@layouts/Default.astro';
+import { getCollection } from 'astro:content';
 
-interface Props {
-  teachings: CollectionEntry<'teachings'>[];
-}
-
-const { teachings } = Astro.props;
+const teachings = await getCollection('teachings');
 ---
 
 <DefaultLayout title="Teachings events">
   <main class="mx-auto max-w-screen-xl px-5 py-10">
     <div>
       <h1 class="text-center text-4xl font-medium">Teachings events</h1>
-      <div class="events">
+      <div class="grid my-10 gap-10 lg:grid-cols-3 md:grid-cols-2 sm:px-10">
         {teachings.map(teaching => (
           <div>
             <EventCard eventData={teaching} />
@@ -24,13 +20,3 @@ const { teachings } = Astro.props;
     </div>
   </main>
 </DefaultLayout>
-
-<style>
-  h3 {
-    @apply text-2xl font-medium;
-  }
-
-  .events {
-    @apply grid lg:grid-cols-3 md:grid-cols-2 gap-10 my-10 sm:px-10;
-  }
-</style>

@@ -12,9 +12,11 @@ import advancedformat from 'dayjs/plugin/advancedFormat';
 
 dayjs.extend(advancedformat);
 
-type Props = CollectionEntry<'teachings'>;
+interface Props {
+  eventData: CollectionEntry<'teachings'>;
+}
 
-const { id, data } = Astro.props;
+const { id, data } = Astro.props.eventData;
 
 const eventType = {
   upcoming: {

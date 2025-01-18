@@ -1,8 +1,8 @@
 ---
 date: 2024-09-27
 status: ongoing
+active: true
 image: images/dudra-poster.jpg
-imageCaption: pic. Buddha Tönpa Shenrab Miwoche, Founder of Yungdrung Bon
 title:
 - Basic Knowledge of the Subject & Object of the Mind
 - Dudra

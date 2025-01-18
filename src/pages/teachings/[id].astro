@@ -25,6 +25,7 @@ const { Content } = await render(teaching);
       <EventHeader
         date={teaching.data.date.toISOString()}
         title={teaching.data.title}
+        active={teaching.data.active}
       />
       <div class="grid gap-10 md:grid-cols-3">
         <aside>

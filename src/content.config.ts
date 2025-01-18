@@ -7,6 +7,7 @@ export const collections = {
     schema: ({ image }) => z.object({
       date: z.date(),
       status: z.ZodEnum.create(['upcoming', 'ongoing', 'past']),
+      active: z.boolean().default(false),
       image: image().optional(),
       imageCaption: z.string().optional(),
       imageAlt: z.string().optional(),

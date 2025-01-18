@@ -1,0 +1,52 @@
+---
+import EventHeader from '@components/EventHeader.astro';
+import SubHeader from '@components/SubHeader.astro';
+import DefaultLayout from '@layouts/Default.astro';
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const teachings = await getCollection('teachings');
+
+  return teachings.map(teaching => ({
+    params: { id: teaching.id },
+    props: { teaching },
+  }));
+}
+
+const { teaching } = Astro.props;
+const { Content } = await render(teaching);
+---
+
+<DefaultLayout title={teaching.data.title[1]}>
+  <main class="mx-auto max-w-screen-xl px-5 pb-10">
+    <SubHeader title="Teachings events" link="/teachings" />
+    <div class="md:px-10">
+      <EventHeader
+        date={teaching.data.date.toISOString()}
+        title={teaching.data.title}
+      />
+      <div class="grid gap-10 md:grid-cols-3">
+        <aside>
+          <figure>
+            {teaching.data.image && (
+              <Image
+                src={teaching.data.image}
+                alt={teaching.data.imageAlt || ''}
+                class="h-auto w-full"
+              />
+            )}
+            <figcaption class="c-gray-5">
+              {teaching.data.imageCaption}
+            </figcaption>
+          </figure>
+        </aside>
+        <article
+          class="max-w-full c-neutral-6 prose prose-neutral md:col-span-2"
+        >
+          <Content />
+        </article>
+      </div>
+    </div>
+  </main>
+</DefaultLayout>

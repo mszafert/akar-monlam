@@ -1,0 +1,158 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  id: string;
+  title: string[];
+}
+
+const { id, title } = Astro.props;
+---
+
+<dialog id={id}>
+  <header>
+    <button type="button" class="close-btn">
+      <div class="i-mdi-close text-2xl"></div>
+    </button>
+    <p class="text-lg">{title[0]}</p>
+    <p class="text-xl font-medium">{title[1]}</p>
+    <p class="text-2xl font-bold">{title[2]}</p>
+    <dir class="mb-0 border-t-1 border-neutral-2 pl-0 pt-3">[Info]</dir>
+  </header>
+  <form action="" class="p-7" method="dialog">
+    <div class="row md:grid-cols-2">
+      <div>
+        <label for="first-name">First Name: <sup>*</sup></label>
+        <input type="text" id="first-name" name="first-name" required />
+      </div>
+      <div>
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="last-name" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="md:w-1/2">
+        <label for="email">E-mail: <sup>*</sup></label>
+        <input type="email" id="email" name="email" required />
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="studie-question">
+          Have you studied with Geshe Tenzin Gelek before? <sup>*</sup>
+        </label>
+        <select name="studie-question" id="studie-question" required>
+          <option value="" disabled selected>Please select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="administrative-questions">
+          Any administrative questions you might have, payment plan or limited
+          scholarship inquiry:
+        </label>
+        <textarea
+          name="administrative-questions"
+          id="administrative-questions"
+          rows="5"
+        ></textarea>
+        <p class="px-1">
+          <small>
+            * Payment plan options & limited scholarship inquiry, please write
+            here.
+          </small>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="donation">Donation: <sup>*</sup></label>
+        <input
+          type="number"
+          id="donation"
+          name="donation"
+          value="200"
+          required
+        />
+        <p class="px-1"><small>Suggested donation: $200</small></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="info">
+        <p>
+          <strong class="block">Important note:</strong>
+          If the payment works, you should get the confirmation screen, and from
+          that confirmation screen, you would need to click the Return to <strong>Merchant button</strong
+          >
+          to get your form's thank you message. That's it!
+        </p>
+      </div>
+    </div>
+    <div class="flex justify-between">
+      <Button className="close-btn" mode="secondary">Cancel</Button>
+      <Button type="submit">Register</Button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+  const regButton = document.querySelector('.reg-button');
+  const regDialog = document.getElementById('reg-dialog');
+  const closeButton = document.querySelectorAll('.close-btn');
+
+  (regDialog as HTMLDialogElement).showModal();
+  document.body.classList.add('overflow-hidden');
+
+  regButton?.addEventListener('click', () => {
+    document.body.classList.add('overflow-hidden');
+    (regDialog as HTMLDialogElement).showModal();
+  });
+
+  closeButton?.forEach(item => item.addEventListener('click', () => {
+    document.body.classList.remove('overflow-hidden');
+    (regDialog as HTMLDialogElement).close();
+  }));
+</script>
+
+<style>
+  dialog {
+    @apply relative max-w-screen-md rounded shadow-xl backdrop:backdrop-blur;
+  }
+
+  header {
+    @apply sticky top-0 bg-neutral-1 py-7 pl-7 pr-10 shadow-lg shadow-neutral-2 z-1;
+  }
+
+  label {
+    @apply block px-1 mb-1;
+  }
+
+  input,
+  select,
+  textarea {
+    @apply block w-full p-2 border border-neutral-2 rounded-md;
+  }
+
+  select {
+    @apply md:w-1/2;
+  }
+
+  sup {
+    @apply top--1 text-size-lg fw-bold text-red-6;
+  }
+
+  .close-btn {
+    @apply absolute right-3 top-5 p-2 c-neutral-6 hover:c-neutral-9;
+  }
+
+  .row {
+    @apply grid gap-5 mb-10;
+  }
+
+  .info {
+    @apply bg-sky-1 p-3 rounded-md;
+  }
+</style>

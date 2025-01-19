@@ -9,6 +9,7 @@ export default defineConfig({
   theme: {
     colors: {
       blue: '#0085fe',
+      darkblue: '#0059aa',
     },
   },
   transformers: [transformerDirectives()],

@@ -103,9 +103,6 @@ const { id, title } = Astro.props;
   const regDialog = document.getElementById('reg-dialog');
   const closeButton = document.querySelectorAll('.close-btn');
 
-  (regDialog as HTMLDialogElement).showModal();
-  document.body.classList.add('overflow-hidden');
-
   regButton?.addEventListener('click', () => {
     document.body.classList.add('overflow-hidden');
     (regDialog as HTMLDialogElement).showModal();

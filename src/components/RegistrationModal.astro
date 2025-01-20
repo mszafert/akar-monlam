@@ -4,9 +4,10 @@ import Button from './Button.astro';
 interface Props {
   id: string;
   title: string[];
+  suggestedDonation?: number;
 }
 
-const { id, title } = Astro.props;
+const { id, title, suggestedDonation } = Astro.props;
 ---
 
 <dialog id={id}>
@@ -74,10 +75,10 @@ const { id, title } = Astro.props;
           type="number"
           id="donation"
           name="donation"
-          value="200"
+          value={suggestedDonation}
           required
         />
-        <p class="px-1"><small>Suggested donation: $200</small></p>
+        <p class="px-1"><small>Suggested donation: ${suggestedDonation}</small></p>
       </div>
     </div>
     <div class="row">
@@ -120,7 +121,7 @@ const { id, title } = Astro.props;
   }
 
   header {
-    @apply sticky top-0 bg-neutral-1 py-7 pl-7 pr-10 shadow-lg shadow-neutral-2 z-1;
+    @apply bg-neutral-1 py-7 pl-7 pr-10;
   }
 
   label {

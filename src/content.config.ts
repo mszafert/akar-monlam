@@ -11,6 +11,7 @@ export const collections = {
       image: image().optional(),
       imageCaption: z.string().optional(),
       imageAlt: z.string().optional(),
+      suggestedDonation: z.number().optional(),
       title: z.array(z.string()),
     }),
   }),

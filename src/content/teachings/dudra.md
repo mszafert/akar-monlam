@@ -3,6 +3,7 @@ date: 2024-09-27
 status: ongoing
 active: true
 image: images/dudra-poster.jpg
+suggestedDonation: 15
 title:
 - Basic Knowledge of the Subject & Object of the Mind
 - Dudra

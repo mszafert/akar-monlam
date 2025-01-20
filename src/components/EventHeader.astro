@@ -10,9 +10,10 @@ interface Props {
   active: boolean;
   date: string;
   title: string[];
+  suggestedDonation?: number;
 }
 
-const { active, date, title } = Astro.props;
+const { active, date, title, suggestedDonation } = Astro.props;
 const formattedDate = dayjs(date).format('Do of MMMM');
 ---
 
@@ -33,4 +34,4 @@ const formattedDate = dayjs(date).format('Do of MMMM');
   </div>
 </header>
 
-{active && <RegistrationModal id="reg-dialog" title={title} />}
+{active && <RegistrationModal id="reg-dialog" title={title} suggestedDonation={suggestedDonation} />}

@@ -5,6 +5,7 @@ active: true
 image: images/the-lamp.png
 imageCaption: pic. The Lamp
 imageAlt: The Lamp
+suggestedDonation: 60
 title:
 - The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü
 - The Fourth Lamp

@@ -26,6 +26,7 @@ const { Content } = await render(teaching);
         date={teaching.data.date.toISOString()}
         title={teaching.data.title}
         active={teaching.data.active}
+        suggestedDonation={teaching.data.suggestedDonation}
       />
       <div class="grid gap-10 md:grid-cols-3">
         <aside>

@@ -37,7 +37,7 @@ const statusType = {
 };
 
 const event = {
-  url: `${Astro.url.href}/${id}`,
+  url: `${Astro.url.href}${id}/`,
   date: dayjs(data.date).format('Do of MMMM'),
   status: statusType[data.status],
   title: data.title,

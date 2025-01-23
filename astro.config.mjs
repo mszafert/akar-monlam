@@ -4,6 +4,7 @@ import UnoCSS from 'unocss/astro';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://akar.dotestow.net/',
   trailingSlash: 'always',
   integrations: [UnoCSS({ injectReset: true })],
 });

@@ -55,11 +55,7 @@ const { id, title, suggestedDonation } = Astro.props;
           Any administrative questions you might have, payment plan or limited
           scholarship inquiry:
         </label>
-        <textarea
-          name="administrative-questions"
-          id="administrative-questions"
-          rows="5"
-        ></textarea>
+        <textarea name="administrative-questions" id="administrative-questions" rows="5"></textarea>
         <p class="px-1">
           <small>
             * Payment plan options & limited scholarship inquiry, please write
@@ -78,7 +74,9 @@ const { id, title, suggestedDonation } = Astro.props;
           value={suggestedDonation}
           required
         />
-        <p class="px-1"><small>Suggested donation: ${suggestedDonation}</small></p>
+        <p class="px-1">
+          <small>Suggested donation: ${suggestedDonation}</small>
+        </p>
       </div>
     </div>
     <div class="row">
@@ -92,7 +90,7 @@ const { id, title, suggestedDonation } = Astro.props;
         </p>
       </div>
     </div>
-    <div class="flex justify-between">
+    <div class="flex justify-between gap-5 md-gap-10">
       <Button className="close-btn" mode="secondary">Cancel</Button>
       <Button type="submit">Register</Button>
     </div>
@@ -100,24 +98,28 @@ const { id, title, suggestedDonation } = Astro.props;
 </dialog>
 
 <script>
-  const regButton = document.querySelector('.reg-button');
-  const regDialog = document.getElementById('reg-dialog');
-  const closeButton = document.querySelectorAll('.close-btn');
+const regButton = document.querySelector('.reg-button');
+const regDialog = document.getElementById('reg-dialog');
+const closeButton = document.querySelectorAll('.close-btn');
 
-  regButton?.addEventListener('click', () => {
-    document.body.classList.add('overflow-hidden');
-    (regDialog as HTMLDialogElement).showModal();
-  });
+(regDialog as HTMLDialogElement).showModal();
 
-  closeButton?.forEach(item => item.addEventListener('click', () => {
+regButton?.addEventListener('click', () => {
+  document.body.classList.add('overflow-hidden');
+  (regDialog as HTMLDialogElement).showModal();
+});
+
+closeButton?.forEach(item =>
+  item.addEventListener('click', () => {
     document.body.classList.remove('overflow-hidden');
     (regDialog as HTMLDialogElement).close();
-  }));
+  }),
+);
 </script>
 
 <style>
   dialog {
-    @apply relative max-w-screen-md rounded shadow-xl backdrop:backdrop-blur;
+    @apply w-full md-m-a max-w-screen-md rounded shadow-xl backdrop:backdrop-blur;
   }
 
   header {

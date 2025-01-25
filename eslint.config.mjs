@@ -6,7 +6,7 @@ export default antfu({
   formatters: true,
   stylistic: {
     semi: true,
-    arrowParens: true,
+    arrowParens: 'avoid',
   },
   typescript: {
     tsconfigPath: 'tsconfig.json',

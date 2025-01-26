@@ -34,4 +34,10 @@ const formattedDate = dayjs(date).format('Do of MMMM');
   </div>
 </header>
 
-{active && <RegistrationModal id="reg-dialog" title={title} suggestedDonation={suggestedDonation} />}
+{active && (
+  <RegistrationModal
+    id="reg-dialog"
+    title={title}
+    suggestedDonation={suggestedDonation}
+  />
+)}

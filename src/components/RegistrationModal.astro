@@ -1,6 +1,8 @@
 ---
 import Button from './Button.astro';
 
+export const prerender = false;
+
 interface Props {
   id: string;
   title: string[];
@@ -15,20 +17,20 @@ const { id, title, suggestedDonation } = Astro.props;
     <button type="button" class="close-btn">
       <div class="i-mdi-close text-2xl"></div>
     </button>
-    <p class="text-lg">{title[0]}</p>
-    <p class="text-xl font-medium">{title[1]}</p>
-    <p class="text-2xl font-bold">{title[2]}</p>
+    <p class="md-text-lg">{title[0]}</p>
+    <p class="text-lg font-medium md-text-xl">{title[1]}</p>
+    <p class="text-xl font-bold md-text-2xl">{title[2]}</p>
     <dir class="mb-0 border-t-1 border-neutral-2 pl-0 pt-3">[Info]</dir>
   </header>
-  <form action="" class="p-7" method="dialog">
+  <form class="p-7" method="post">
     <div class="row md:grid-cols-2">
       <div>
-        <label for="first-name">First Name: <sup>*</sup></label>
-        <input type="text" id="first-name" name="first-name" required />
+        <label for="firstName">First Name: <sup>*</sup></label>
+        <input type="text" id="firstName" name="firstName" required />
       </div>
       <div>
-        <label for="last-name">Last Name:</label>
-        <input type="text" id="last-name" name="last-name" />
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" />
       </div>
     </div>
     <div class="row">
@@ -39,10 +41,10 @@ const { id, title, suggestedDonation } = Astro.props;
     </div>
     <div class="row">
       <div>
-        <label for="studie-question">
+        <label for="studieQuestion">
           Have you studied with Geshe Tenzin Gelek before? <sup>*</sup>
         </label>
-        <select name="studie-question" id="studie-question" required>
+        <select name="studieQuestion" id="studieQuestion" required>
           <option value="" disabled selected>Please select</option>
           <option value="yes">Yes</option>
           <option value="no">No</option>
@@ -51,11 +53,11 @@ const { id, title, suggestedDonation } = Astro.props;
     </div>
     <div class="row">
       <div>
-        <label for="administrative-questions">
+        <label for="adminQuestions">
           Any administrative questions you might have, payment plan or limited
           scholarship inquiry:
         </label>
-        <textarea name="administrative-questions" id="administrative-questions" rows="5"></textarea>
+        <textarea name="adminQuestions" id="adminQuestions" rows="5"></textarea>
         <p class="px-1">
           <small>
             * Payment plan options & limited scholarship inquiry, please write
@@ -98,15 +100,32 @@ const { id, title, suggestedDonation } = Astro.props;
 </dialog>
 
 <script>
+import { actions, isInputError } from 'astro:actions';
+
 const regButton = document.querySelector('.reg-button');
 const regDialog = document.getElementById('reg-dialog');
 const closeButton = document.querySelectorAll('.close-btn');
-
-(regDialog as HTMLDialogElement).showModal();
+const form = document.querySelector('form');
 
 regButton?.addEventListener('click', () => {
   document.body.classList.add('overflow-hidden');
   (regDialog as HTMLDialogElement).showModal();
+});
+
+form?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+  const { data, error } = await actions.registration(formData);
+
+  if (data) {
+    form.reset();
+    (regDialog as HTMLDialogElement).close();
+  }
+
+  if (error && isInputError(error)) {
+    console.error(error.fields);
+  }
 });
 
 closeButton?.forEach(item =>
@@ -123,7 +142,7 @@ closeButton?.forEach(item =>
   }
 
   header {
-    @apply bg-neutral-1 py-7 pl-7 pr-10;
+    @apply bg-neutral-1 py-7 pl-7 pr-15 md-pr-10;
   }
 
   label {

@@ -26,9 +26,9 @@ const formattedDate = dayjs(date).format('Do of MMMM');
       <h1 class="text-3xl font-bold">{title[2]}</h1>
     </div>
     {active && (
-      <div class="min-w-fit flex flex-col justify-center rounded-lg bg-neutral-2 p-5 text-center">
-        <p class="mb-3 text-lg font-medium">Register <br /> for upcoming retreat</p>
-        <Button className="reg-button">Registration</Button>
+      <div class="min-w-fit flex flex-col justify-center rounded-lg bg-blue p-5 text-center">
+        <p class="mb-3 text-lg c-white font-medium">Register <br /> for upcoming retreat</p>
+        <Button className="reg-button" mode="inverted">Registration</Button>
       </div>
     )}
   </div>

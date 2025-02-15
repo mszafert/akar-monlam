@@ -20,7 +20,6 @@ const { id, title, suggestedDonation } = Astro.props;
     <p class="md-text-lg">{title[0]}</p>
     <p class="text-lg font-medium md-text-xl">{title[1]}</p>
     <p class="text-xl font-bold md-text-2xl">{title[2]}</p>
-    <dir class="mb-0 border-t-1 border-neutral-2 pl-0 pt-3">[Info]</dir>
   </header>
   <form class="p-7" method="post">
     <div class="row md:grid-cols-2">
@@ -53,11 +52,11 @@ const { id, title, suggestedDonation } = Astro.props;
     </div>
     <div class="row">
       <div>
-        <label for="adminQuestions">
+        <label for="adminQuestion">
           Any administrative questions you might have, payment plan or limited
           scholarship inquiry:
         </label>
-        <textarea name="adminQuestions" id="adminQuestions" rows="5"></textarea>
+        <textarea name="adminQuestion" id="adminQuestion" rows="5"></textarea>
         <p class="px-1">
           <small>
             * Payment plan options & limited scholarship inquiry, please write
@@ -105,6 +104,7 @@ import { actions, isInputError } from 'astro:actions';
 const regButton = document.querySelector('.reg-button');
 const regDialog = document.getElementById('reg-dialog');
 const closeButton = document.querySelectorAll('.close-btn');
+const registerConformation = document.getElementById('register-conformation');
 const form = document.querySelector('form');
 
 regButton?.addEventListener('click', () => {
@@ -120,6 +120,8 @@ form?.addEventListener('submit', async (e) => {
 
   if (data) {
     form.reset();
+    (registerConformation as HTMLElement).hidden = false;
+    document.body.classList.remove('overflow-hidden');
     (regDialog as HTMLDialogElement).close();
   }
 
@@ -138,7 +140,7 @@ closeButton?.forEach(item =>
 
 <style>
   dialog {
-    @apply w-full md-m-a max-w-screen-md rounded shadow-xl backdrop:backdrop-blur;
+    @apply w-full md-m-a max-w-screen-md rounded-lg shadow-xl backdrop:backdrop-blur;
   }
 
   header {

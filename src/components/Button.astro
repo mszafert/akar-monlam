@@ -2,7 +2,7 @@
 interface Props {
   id?: string;
   type?: 'button' | 'submit';
-  mode?: 'primary' | 'secondary';
+  mode?: 'primary' | 'secondary' | 'inverted';
   className?: string;
 }
 
@@ -22,5 +22,9 @@ const { id, type = 'button', mode = 'primary', className = '' } = Astro.props;
 
   .secondary {
     @apply bg-neutral-6 hover:bg-neutral-8;
+  }
+
+  .inverted {
+    @apply bg-white hover:bg-neutral-2 c-neutral-9 ;
   }
 </style>

@@ -1,5 +1,19 @@
 ---
 import DefaultLayout from '@layouts/Default.astro';
+
+const paymentUrl = 'https://www.paypal.com/cgi-bin/webscr';
+const payPalVars = {
+  cmd: '_donations',
+  business: 'geshetenzingelek@gmail.com',
+  item_name: 'Support A-kar Bon Center',
+  currency_code: 'USD',
+  amount: '',
+  no_note: '1',
+  no_shipping: '1',
+  notify_url: '',
+  return: '',
+  cancel_return: '',
+};
 ---
 
 <DefaultLayout title="Donate">
@@ -9,19 +23,10 @@ import DefaultLayout from '@layouts/Default.astro';
       <p class="p-10 text-2xl">
         Please donate to support our mission to benefit all sentient beings
       </p>
-      <form target="_blank" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-        <input type="hidden" name="cmd" value="_donations" />
-        <input type="hidden" name="business" value="geshetenzingelek@gmail.com" />
-        <input type="hidden" name="item_name" value="Support A-kar Bon Center" />
-        <input type="hidden" name="item_number" value="" />
-        <input type="hidden" name="currency_code" value="USD" />
-        <input type="hidden" name="amount" value="" />
-        <input type="hidden" name="no_note" value="1" />
-        <input type="hidden" name="no_shipping" value="1" />
-        <input type="hidden" name="notify_url" value="" />
-        <input type="hidden" name="lc" value="EN_US" />
-        <input type="hidden" name="return" value="" />
-        <input type="hidden" name="cancel_return" value="" />
+      <form action={paymentUrl} method="post">
+        {Object.entries(payPalVars).map(([key, value]) => (
+          <input type="hidden" name={key} value={value} />
+        ))}
         <input class="wpedon_paypalbuttonimage" type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" name="submit" alt="Make your payments with PayPal. It is free, secure, effective." style="border: none;" />
         <img alt="Donate" style="border:none;display:none;" src="https://www.paypal.com/EN_US/i/scr/pixel.gif" width="1" height="1" />
       </form>

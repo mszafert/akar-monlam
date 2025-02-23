@@ -1,8 +1,6 @@
 ---
 import Button from './Button.astro';
 
-export const prerender = false;
-
 interface Props {
   id: string;
   title: string[];
@@ -85,8 +83,7 @@ const { id, title, suggestedDonation } = Astro.props;
         <p>
           <strong class="block">Important note:</strong>
           If the payment works, you should get the confirmation screen, and from
-          that confirmation screen, you would need to click the Return to <strong>Merchant button</strong
-          >
+          that confirmation screen, you would need to click the Return to <strong>Merchant button</strong>
           to get your form's thank you message. That's it!
         </p>
       </div>
@@ -104,7 +101,6 @@ import { actions, isInputError } from 'astro:actions';
 const regButton = document.querySelector('.reg-button');
 const regDialog = document.getElementById('reg-dialog');
 const closeButton = document.querySelectorAll('.close-btn');
-const registerConformation = document.getElementById('register-conformation');
 const form = document.querySelector('form');
 
 regButton?.addEventListener('click', () => {
@@ -116,11 +112,11 @@ form?.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const formData = new FormData(form);
+
   const { data, error } = await actions.registration(formData);
 
   if (data) {
     form.reset();
-    (registerConformation as HTMLElement).hidden = false;
     document.body.classList.remove('overflow-hidden');
     (regDialog as HTMLDialogElement).close();
   }

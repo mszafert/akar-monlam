@@ -53,5 +53,8 @@
     "scss",
     "pcss",
     "postcss"
-  ]
+  ],
+  "[astro]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }
 }

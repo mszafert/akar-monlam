@@ -2,7 +2,7 @@
 date: 2024-12-10
 status: past
 image: images/the-lamp.png
-imageCaption: pic. The Lamp
+imageCaption: The Lamp
 imageAlt: The Lamp
 title:
 - The secret instructions of the Six Lamps of the Dzogchen Zhang Zhung Nyengyü
@@ -12,7 +12,7 @@ title:
 
 > 10 Sessions total
 >
-> **starting 10th of December (Tuesday)**
+> **starting 10th of December (Tuesday) 2024**
 >
 > Sessions - Every Tuesday & Thursday
 >

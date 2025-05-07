@@ -1,7 +1,6 @@
 ---
 date: 2025-01-07
-status: ongoing
-active: true
+status: past
 image: images/the-lamp.png
 imageCaption: pic. The Lamp
 imageAlt: The Lamp
@@ -14,21 +13,20 @@ title:
 
 > 3 Sessions total
 >
-> **1st session starting 7th of January (Tuesday)**
+> **1st session starting 7th of January (Tuesday) 2025**
 >
 > **Due to Geshe Tenzin Gelek travel to Nepal the 2nd and 3th Sessions – starting from 16th of January (Thursday)**
 >
 > **We also extended registration for this event**
 >
-> Donation: $60 USD
->
+
 > 6:00-7:30pm ET via ZOOM
 >
 > **\*Payment plan options & limited scholarships available.**
 >
 > RECORDINGS AVAILABLE FOR ALL SESSIONS for one week after each session for those who can't participate live and for review
 >
-> Recordings from previous Lamps available to new students for request and some donation fee
+
 
 ---
 
